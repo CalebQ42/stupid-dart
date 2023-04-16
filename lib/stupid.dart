@@ -12,8 +12,8 @@ class Stupid {
 
   Stupid({required this.baseUrl, required this.deviceId}){
     if(!platform.isWeb){
-      var dot = DotEnv()..load([".stupid"]);
-      dot.getOrElse("STUPID_KEY", () => throw("must provide .stupid with STUPID_KEY={API key}"));
+      var dot = DotEnv()..load();
+      dot.getOrElse("STUPID_KEY", () => throw("must provide .env with STUPID_KEY={API key}"));
     }
     platform.when(
       io: () => platform.when(
