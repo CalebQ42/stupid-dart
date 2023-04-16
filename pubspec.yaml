@@ -4,7 +4,7 @@ version: 0.0.1
 repository: https://github.com/CalebQ42/stupid-dart
 
 environment:
-  sdk: '>=2.19.4 <3.0.0'
+  sdk: '>=2.19.4 <4.0.0'
 
 # dependencies:
 #   path: ^1.8.0
