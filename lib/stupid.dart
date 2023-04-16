@@ -1,8 +1,6 @@
-
-import 'package:dotenv/dotenv.dart';
 import 'package:platform_info/platform_info.dart';
 import 'package:http/http.dart';
-import 'package:stupid/crash.dart';
+import 'package:uuid/uuid.dart';
 
 class Stupid {
   Uri baseUrl;
@@ -10,11 +8,7 @@ class Stupid {
   late String plat;
   String? apiKey;
 
-  Stupid({required this.baseUrl, required this.deviceId}){
-    if(!platform.isWeb){
-      var dot = DotEnv()..load();
-      dot.getOrElse("STUPID_KEY", () => throw("must provide .env with STUPID_KEY={API key}"));
-    }
+  Stupid({required this.baseUrl, required this.deviceId, this.apiKey}){
     platform.when(
       io: () => platform.when(
         fuchsia:   () => plat = "fuchsia",
@@ -28,6 +22,7 @@ class Stupid {
       web: () => plat = "web",
       unknown: () => plat = "unknown"
     );
+    if(plat != "web") throw("apiKey must be provided if not web");
   }
 
   Future<bool> log() async {
@@ -65,4 +60,12 @@ class Stupid {
     );
     return resp.statusCode == 201;
   }
+}
+
+class Crash{
+  String id = Uuid().v4();
+  String error;
+  String stack;
+
+  Crash({required this.error, required this.stack});
 }
