@@ -22,7 +22,7 @@ class Stupid {
       web: () => plat = "web",
       unknown: () => plat = "unknown"
     );
-    if(plat != "web") throw("apiKey must be provided if not web");
+    if(plat != "web" && apiKey == null) throw("apiKey must be provided if not web");
   }
 
   Future<bool> log() async {
