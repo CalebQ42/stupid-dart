@@ -21,7 +21,7 @@
     },
     {
       "name": "async",
-      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/async-2.10.0",
+      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/async-2.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -56,6 +56,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "dotenv",
+      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/dotenv-4.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "file",
       "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/file-6.1.4",
       "packageUri": "lib/",
@@ -72,6 +78,12 @@
       "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/glob-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.15"
+    },
+    {
+      "name": "http",
+      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/http-0.13.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
     },
     {
       "name": "http_multi_server",
@@ -111,7 +123,7 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/matcher-0.12.14",
+      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/matcher-0.12.15",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -142,6 +154,12 @@
     {
       "name": "path",
       "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/path-1.8.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "platform_info",
+      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/platform_info-3.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -225,25 +243,31 @@
     },
     {
       "name": "test",
-      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/test-1.23.1",
+      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/test-1.24.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "test_api",
-      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/test_api-0.4.18",
+      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/test_api-0.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "test_core",
-      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/test_core-0.4.24",
+      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/test_core-0.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "typed_data",
       "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/typed_data-1.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "uuid",
+      "rootUri": "file:///home/belac/.pub-cache/hosted/pub.dev/uuid-3.0.7",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -284,7 +308,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-10T19:27:15.152690Z",
+  "generated": "2023-04-16T08:11:58.147461Z",
   "generator": "pub",
-  "generatorVersion": "2.19.4"
+  "generatorVersion": "3.0.0-417.1.beta"
 }
