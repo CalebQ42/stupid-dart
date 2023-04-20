@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:platform_info/platform_info.dart';
 import 'package:http/http.dart';
 import 'package:uuid/uuid.dart';
@@ -9,6 +11,7 @@ class Stupid {
   String? apiKey;
 
   Stupid({required this.baseUrl, required this.deviceId, this.apiKey}){
+    if(apiKey == null) throw("apiKey must be provided");
     platform.when(
       io: () => platform.when(
         fuchsia:   () => plat = "fuchsia",
@@ -22,43 +25,55 @@ class Stupid {
       web: () => plat = "web",
       unknown: () => plat = "unknown"
     );
-    if(plat != "web" && apiKey == null) throw("apiKey must be provided if not web");
   }
 
   Future<bool> log() async {
-    var resp = await post(
-      baseUrl.resolveUri(
-        Uri(
-          path: "/log",
-          queryParameters: {
-            if(plat != "web") "key": apiKey,
-            "id": deviceId,
-            "platform": plat,
-          }
+    try{
+      var resp = await post(
+        baseUrl.resolveUri(
+          Uri(
+            path: "/log",
+            queryParameters: {
+              "key": apiKey,
+              "id": deviceId,
+              "platform": plat,
+            }
+          )
         )
-      )
-    );
-    return resp.statusCode == 201;
+      ).timeout(const Duration(milliseconds: 500));
+      return resp.statusCode == 201;
+    }catch(e){
+      return false;
+    }
   }
 
   Future<bool> crash(Crash cr) async{
-    var resp = await post(
-      baseUrl.resolveUri(
-        Uri(
-          path: "/crash",
-          queryParameters: {
-            if(plat != "web") "key": apiKey,
-          }
-        )
-      ),
-      body: <String, String>{
+    try{
+      var bod = <String, String>{
         "id": cr.id,
         "error": cr.error,
         "platform": plat,
         "stack": cr.stack
-      }
-    );
-    return resp.statusCode == 201;
+      };
+      var outBod = JsonEncoder().convert(bod);
+      var resp = await post(
+        baseUrl.resolveUri(
+          Uri(
+            path: "/crash",
+            queryParameters: {
+              "key": apiKey,
+            }
+          )
+        ),
+        headers: <String, String>{
+          "content-type": "application/json",
+        },
+        body: outBod,
+      ).timeout(const Duration(milliseconds: 500));
+      return resp.statusCode == 201;
+    }catch(e){
+      return false;
+    }
   }
 }
 
