@@ -5,13 +5,18 @@ import 'package:http/http.dart';
 import 'package:uuid/uuid.dart';
 
 class Stupid {
-  Uri baseUrl;
-  String deviceId;
+  final Uri baseUrl;
+  final String deviceId;
   late String plat;
-  String? apiKey;
+  final String apiKey;
+  final void Function(Object, StackTrace)? onError;
 
-  Stupid({required this.baseUrl, required this.deviceId, this.apiKey}){
-    if(apiKey == null) throw("apiKey must be provided");
+  Stupid({
+    required this.baseUrl,
+    required this.deviceId,
+    required this.apiKey,
+    this.onError
+  }){
     platform.when(
       io: () => platform.when(
         fuchsia:   () => plat = "fuchsia",
@@ -40,9 +45,10 @@ class Stupid {
             }
           )
         )
-      ).timeout(const Duration(seconds: 5));
+      );
       return resp.statusCode == 201;
-    }catch(e){
+    }catch(e, stack){
+      if(onError != null) onError!(e, stack);
       return false;
     }
   }
@@ -69,9 +75,10 @@ class Stupid {
           "content-type": "application/json",
         },
         body: outBod,
-      ).timeout(const Duration(seconds: 5));
+      );
       return resp.statusCode == 201;
-    }catch(e){
+    }catch(e, stack){
+      if(onError != null) onError!(e, stack);
       return false;
     }
   }
