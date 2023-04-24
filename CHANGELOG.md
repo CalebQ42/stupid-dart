@@ -1,3 +1,5 @@
-## 1.0.0
+# Changelog
 
-- Initial version.
+## 0.0.7
+
+* Updated timeout time from .5 seconds to 5 seconds
