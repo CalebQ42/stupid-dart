@@ -40,7 +40,7 @@ class Stupid {
             }
           )
         )
-      ).timeout(const Duration(milliseconds: 500));
+      ).timeout(const Duration(seconds: 5));
       return resp.statusCode == 201;
     }catch(e){
       return false;
@@ -69,7 +69,7 @@ class Stupid {
           "content-type": "application/json",
         },
         body: outBod,
-      ).timeout(const Duration(milliseconds: 500));
+      ).timeout(const Duration(seconds: 5));
       return resp.statusCode == 201;
     }catch(e){
       return false;
