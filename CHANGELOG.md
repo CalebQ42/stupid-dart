@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.9
+
+* Added optional version to crashes, defaults to "unknown"
+
 ## 0.0.8
 
 * Removed timeout (leave that for implementations if they deem it necessary).

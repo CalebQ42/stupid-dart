@@ -53,13 +53,14 @@ class Stupid {
     }
   }
 
-  Future<bool> crash(Crash cr) async{
+  Future<bool> crash(Crash cr, {String appVersion = "unknown"}) async{
     try{
       var bod = <String, String>{
         "id": cr.id,
         "error": cr.error,
         "platform": plat,
-        "stack": cr.stack
+        "stack": cr.stack,
+        "version": appVersion
       };
       var outBod = JsonEncoder().convert(bod);
       var resp = await post(
