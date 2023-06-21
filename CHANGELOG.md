@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0
+
+* Downgraded http library back down to prevent conflices with several libraries
+* Version is not provided directly in Crash instead of Stupid.crash.
+
 ## 0.0.9
 
 * Added optional version to crashes, defaults to "unknown"
