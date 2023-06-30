@@ -15,5 +15,5 @@ dev_dependencies:
 
 dependencies:
   http: ^1.1.0
-  platform_info: ^4.0.0
+  platform_info: ^4.0.2
   uuid: ^3.0.7
