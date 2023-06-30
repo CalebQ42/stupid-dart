@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+* Update http library (again)
+
 ## 0.1.0
 
 * Downgraded http library back down to prevent conflices with several libraries
