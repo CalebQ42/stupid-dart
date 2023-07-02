@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:platform_info/platform_info.dart';
 import 'package:http/http.dart';
 import 'package:uuid/uuid.dart';
@@ -10,13 +11,16 @@ class Stupid {
   late String plat;
   final String apiKey;
   final void Function(Object, StackTrace)? onError;
+  final InternetConnection con;
 
   Stupid({
     required this.baseUrl,
     required this.deviceId,
     required this.apiKey,
     this.onError
-  }){
+  }) :
+    con = InternetConnection.createInstance()
+  {
     platform.when(
       io: () => platform.when(
         fuchsia:   () => plat = "fuchsia",
@@ -33,6 +37,7 @@ class Stupid {
   }
 
   Future<bool> log() async {
+    if(!await con.hasInternetAccess) return false;
     try{
       var resp = await post(
         baseUrl.resolveUri(
@@ -54,6 +59,7 @@ class Stupid {
   }
 
   Future<bool> crash(Crash cr) async{
+    if(!await con.hasInternetAccess) return false;
     try{
       var bod = <String, String>{
         "id": cr.id,

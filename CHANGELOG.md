@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+* Check the internet status before making a request
+
 ## 0.1.1
 
 * Update http library (again)
