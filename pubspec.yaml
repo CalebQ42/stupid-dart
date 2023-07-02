@@ -1,6 +1,6 @@
 name: stupid
 description: A dart package to communicate with stupid-backend.
-version: 0.2.0
+version: 0.2.1
 repository: https://github.com/CalebQ42/stupid-dart
 
 environment:

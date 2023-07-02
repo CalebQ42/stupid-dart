@@ -12,11 +12,13 @@ class Stupid {
   final String apiKey;
   final void Function(Object, StackTrace)? onError;
   final InternetConnection con;
+  final bool waitForInternet;
 
   Stupid({
     required this.baseUrl,
     required this.deviceId,
     required this.apiKey,
+    this.waitForInternet = true,
     this.onError
   }) :
     con = InternetConnection.createInstance()
@@ -37,7 +39,9 @@ class Stupid {
   }
 
   Future<bool> log() async {
-    if(!await con.hasInternetAccess) return false;
+    if(waitForInternet && !await con.hasInternetAccess){
+      await con.onStatusChange.where((event) => event == InternetStatus.connected).first;
+    }
     try{
       var resp = await post(
         baseUrl.resolveUri(
@@ -59,7 +63,9 @@ class Stupid {
   }
 
   Future<bool> crash(Crash cr) async{
-    if(!await con.hasInternetAccess) return false;
+    if(waitForInternet && !await con.hasInternetAccess){
+      await con.onStatusChange.where((event) => event == InternetStatus.connected).first;
+    }
     try{
       var bod = <String, String>{
         "id": cr.id,

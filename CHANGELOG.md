@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+* Option to wait until internet is connected then send request.
+
 ## 0.2.0
 
 * Check the internet status before making a request
