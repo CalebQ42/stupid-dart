@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.4
+
+* isAvailable now actually works
+
 ## 0.2.3
 
 * Internet checker now optionally uses a given address to check.

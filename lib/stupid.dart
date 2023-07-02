@@ -14,7 +14,8 @@ class Stupid {
   final InternetConnection con;
   final bool waitForInternet;
 
-  bool get isAvailable => con.lastTryResults == InternetStatus.connected;
+  bool _internetAvailable = true;
+  bool get isAvailable => _internetAvailable;
 
   Stupid({
     required this.baseUrl,
@@ -46,6 +47,8 @@ class Stupid {
       web: () => plat = "web",
       unknown: () => plat = "unknown"
     );
+    con.internetStatus.then((value) => _internetAvailable = value == InternetStatus.connected);
+    con.onStatusChange.listen((event) => _internetAvailable = event == InternetStatus.connected);
   }
 
   Future<bool> log() async {
