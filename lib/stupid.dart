@@ -14,6 +14,8 @@ class Stupid {
   final InternetConnection con;
   final bool waitForInternet;
 
+  bool get isAvailable => con.lastTryResults == InternetStatus.connected;
+
   Stupid({
     required this.baseUrl,
     required this.deviceId,
@@ -21,7 +23,14 @@ class Stupid {
     this.waitForInternet = true,
     this.onError
   }) :
-    con = InternetConnection.createInstance()
+    con = InternetConnection.createInstance(
+      customCheckOptions: [
+        InternetCheckOption(
+          uri: baseUrl
+        )
+      ],
+      useDefaultOptions: false
+    )
   {
     platform.when(
       io: () => platform.when(

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+* Internet checker now uses the base URL.
+
 ## 0.2.1
 
 * Option to wait until internet is connected then send request.
