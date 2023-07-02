@@ -20,16 +20,17 @@ class Stupid {
     required this.baseUrl,
     required this.deviceId,
     required this.apiKey,
+    Uri? internetCheckAddress,
     this.waitForInternet = true,
     this.onError
   }) :
     con = InternetConnection.createInstance(
-      customCheckOptions: [
+      customCheckOptions: internetCheckAddress != null ? [
         InternetCheckOption(
-          uri: baseUrl
+          uri: internetCheckAddress
         )
-      ],
-      useDefaultOptions: false
+      ] : null,
+      useDefaultOptions: internetCheckAddress == null
     )
   {
     platform.when(

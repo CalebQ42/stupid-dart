@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+
+* Internet checker now optionally uses a given address to check.
+
 ## 0.2.2
 
 * Internet checker now uses the base URL.
