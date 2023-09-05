@@ -11,7 +11,7 @@ dev_dependencies:
   test: ^1.24.4
 
 dependencies:
-  http: ^1.0.0 # keep at 1.0.0 as 1.1.0 has issues resolving api.darkstorm.tech
+  http: 1.0.0 # keep at 1.0.0 as 1.1.0 has issues resolving api.darkstorm.tech
   internet_connection_checker_plus: ^2.0.0
   platform_info: ^4.0.2
   uuid: ^4.0.0

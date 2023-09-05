@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.5
+
+* Downgrade http library due to it being unable to resolve api.darkstorm.tech
+
 ## 0.2.4
 
 * isAvailable now actually works
