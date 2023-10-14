@@ -1,6 +1,6 @@
 name: stupid
 description: A dart package to communicate with stupid-backend.
-version: 0.2.5
+version: 0.2.6
 repository: https://github.com/CalebQ42/stupid-dart
 
 environment:
@@ -8,10 +8,10 @@ environment:
 
 dev_dependencies:
   lints: ^2.1.1
-  test: ^1.24.4
+  test: ^1.24.8
 
 dependencies:
-  http: 1.0.0 # keep at 1.0.0 as 1.1.0 has issues resolving api.darkstorm.tech
-  internet_connection_checker_plus: ^2.0.0
+  http: ^1.1.0 # keep at 1.0.0 as 1.1.0 has issues resolving api.darkstorm.tech
+  internet_connection_checker_plus: ^2.1.0
   platform_info: ^4.0.2
-  uuid: ^4.0.0
+  uuid: ^4.1.0

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.6
+
+* Update http library (again). http 1.1.0 seems to be working properly now.
+
 ## 0.2.5
 
 * Downgrade http library due to it being unable to resolve api.darkstorm.tech
